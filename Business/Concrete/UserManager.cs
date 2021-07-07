@@ -28,9 +28,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserAdded);
         }
 
-        public List<User> GetAll()
+        public IDataResult<List<User>> GetAll()
         {
-            return _userDal.GetAll();
+            return new DataResult<List<User>>(_userDal.GetAll(),true,"Kullanıcılar listelendi");
         }
 
         public User GetById(int userId)
