@@ -9,7 +9,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             UserManager userManager = new UserManager(new EfUserDal());
-            foreach (var user in userManager.GetUserDetails())
+            foreach (var user in userManager.GetUserDetails().Data)
             {
                 Console.WriteLine(user.user_email+" | "+user.cliem_title);
             }
