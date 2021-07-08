@@ -8,10 +8,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            UserManager userManager = new UserManager(new EfUserDal());
-            foreach (var user in userManager.GetUserDetails().Data)
+            CliemManager cliemManager = new CliemManager(new EfCliemDal());
+            string email = "anilcetinnn2@yandex.com";
+
+            foreach (var cliem in cliemManager.GetAll().Data)
             {
-                Console.WriteLine(user.user_email+" | "+user.cliem_title);
+                Console.WriteLine(cliem.cliem_title);
             }
         }
     }

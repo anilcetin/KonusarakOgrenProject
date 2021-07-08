@@ -31,7 +31,9 @@ namespace WebAPI
         {
             services.AddControllers();
             services.AddSingleton<IUserService, UserManager>();
+            services.AddSingleton<ICliemService, CliemManager>();
             services.AddSingleton<IUserDal, EfUserDal>();
+            services.AddSingleton<ICliemDal, EfCliemDal>();
             services.AddSwaggerDocument(config =>
             {
                 config.PostProcess = (doc =>

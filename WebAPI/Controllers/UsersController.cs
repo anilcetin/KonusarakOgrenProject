@@ -75,5 +75,35 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+        [HttpDelete("delete")]
+        public IActionResult Delete(User user)
+        {
+            var result = _userService.Delete(user);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpPut("update")]
+        public IActionResult Update(User user)
+        {
+            var result = _userService.Update(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpPost("checkemail={email}")]
+        public IActionResult CheckEmail(string email)
+        {
+            var result = _userService.CheckEmail(email);
+            if (result.Success)
+            {
+                return Ok(result.Success);
+            }
+            return BadRequest(result.Message);
+        }
     }
 }

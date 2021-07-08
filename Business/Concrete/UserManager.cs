@@ -35,6 +35,12 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserAdded);
         }
 
+        public IResult Delete(User user)
+        {
+            _userDal.Delete(user);
+            return new SuccessResult("Kullanıcı silindi");
+        }
+
         public IDataResult<List<User>> GetAll()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), "Kullanıcılar listelendi");
@@ -58,6 +64,35 @@ namespace Business.Concrete
                 return new ErrorDataResult<User>("Kullanıcı adı veya şifre hatalı");
             }
             return new SuccessDataResult<User>("Giriş başarılı");
+        }
+
+        public IResult CheckEmail(string email)
+        {
+            var result = _userDal.Get(u => u.user_email == email);
+            if (result == null) 
+            {
+                return new SuccessResult();
+            }
+            else if (result.user_email == email)
+            {
+                return new ErrorResult("Email adresiniz başka bir kullanıcıya ait.");
+            }
+            return new SuccessResult();
+        }
+
+        public IResult Update(User user)
+        {
+            try
+            {
+                _userDal.Update(user);
+                return new SuccessResult("Güncelleme başarılı.");
+            }
+            catch (Exception)
+            {
+                return new ErrorResult("Tüm bilgileri eksiksiz giriniz.");
+                throw;
+            }
+
         }
     }
 }

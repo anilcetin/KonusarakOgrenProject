@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Results;
+﻿using Core.DataAccess;
+using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -13,6 +14,10 @@ namespace Business.Abstract
         IDataResult<User> GetById(int userId);
         IDataResult<List<UserDetailDto>> GetUserDetails();
         IResult Add(User user);
+        IResult Delete(User user);
+        IResult Update(User user);
         IResult Login(string email, string password);
+        IResult CheckEmail(string email);
+        
     }
 }
