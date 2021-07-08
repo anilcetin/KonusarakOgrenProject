@@ -32,6 +32,8 @@ namespace WebAPI
             services.AddControllers();
             services.AddSingleton<IUserService, UserManager>();
             services.AddSingleton<ICliemService, CliemManager>();
+            services.AddSingleton<IArticleService, ArticleManager>();
+            services.AddSingleton<IArticleDal, EfArticleDal>();
             services.AddSingleton<IUserDal, EfUserDal>();
             services.AddSingleton<ICliemDal, EfCliemDal>();
             services.AddSwaggerDocument(config =>
