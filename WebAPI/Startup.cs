@@ -30,9 +30,13 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IUserService, UserManager>();
             services.AddSingleton<ICliemService, CliemManager>();
+            services.AddSingleton<IUserService, UserManager>();
             services.AddSingleton<IArticleService, ArticleManager>();
+            services.AddSingleton<IAnswerService, AnswerManager>();
+            services.AddSingleton<IExamService, ExamManager>();
+            services.AddSingleton<IExamDal, EfExamDal>();
+            services.AddSingleton<IAnswerDal, EfAnswerDal>();
             services.AddSingleton<IArticleDal, EfArticleDal>();
             services.AddSingleton<IUserDal, EfUserDal>();
             services.AddSingleton<ICliemDal, EfCliemDal>();

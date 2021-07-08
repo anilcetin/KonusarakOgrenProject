@@ -1,16 +1,15 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class Exam:IEntity
+    public class ExamDetailDto: IDto
     {
-        [Key]
         public int exam_id { get; set; }
+        public string article_title { get; set; }
         public DateTime exam_date { get; set; }
-        public int articleexam { get; set; }
+
     }
 }
