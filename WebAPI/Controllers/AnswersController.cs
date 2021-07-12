@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors]
     public class AnswersController : ControllerBase
     {
         IAnswerService _answerService;
@@ -45,7 +47,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid={id}")]
         public IActionResult GetById(int id)
         {
-            var result = _answerService.GetById(id);
+            var result = _answerService.GetByQuestionId(id);
             if (result.Success)
             {
                 return Ok(result);

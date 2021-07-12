@@ -34,9 +34,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Answer>>(_answerDal.GetAll(), "Cevaplar listelendi");
         }
 
-        public IDataResult<Answer> GetById(int answer_id)
+        public IDataResult<List<Answer>> GetByQuestionId(int question_id)
         {
-            return new SuccessDataResult<Answer>(_answerDal.Get(u => u.answer_id == answer_id), "Cevap numarasına göre data getirildi.");
+            return new SuccessDataResult<List<Answer>>(_answerDal.GetAll(u => u.questionanswer == question_id), "Cevap numarasına göre data getirildi.");
         }
 
         public IResult Update(Answer answer)

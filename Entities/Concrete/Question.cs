@@ -10,7 +10,7 @@ namespace Entities.Concrete
     {
         [Key]
         public int question_id { get; set; }
-        public string title { get; set; }
+        public string question_title { get; set; }
         public int articlequestion { get; set; }
     }
 }

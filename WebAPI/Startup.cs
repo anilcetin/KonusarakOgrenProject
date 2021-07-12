@@ -30,11 +30,14 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
             services.AddSingleton<ICliemService, CliemManager>();
             services.AddSingleton<IUserService, UserManager>();
             services.AddSingleton<IArticleService, ArticleManager>();
             services.AddSingleton<IAnswerService, AnswerManager>();
             services.AddSingleton<IExamService, ExamManager>();
+            services.AddSingleton<IQuestionService, QuestionManager>();
+            services.AddSingleton<IQuestionDal, EfQuestionDal>();
             services.AddSingleton<IExamDal, EfExamDal>();
             services.AddSingleton<IAnswerDal, EfAnswerDal>();
             services.AddSingleton<IArticleDal, EfArticleDal>();
@@ -63,6 +66,10 @@ namespace WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:3000").AllowAnyMethod()
+            );
 
             app.UseOpenApi();
 
