@@ -40,6 +40,11 @@ namespace Business.Concrete
             return new SuccessDataResult<Exam>(_examDal.Get(u => u.exam_id == exam_id), "Sınav numarasına göre data getirildi.");
         }
 
+        public IDataResult<List<ExamContentDto>> GetExamAllDetails(int exam_id)
+        {
+            return new SuccessDataResult<List<ExamContentDto>>(_examDal.GetExamAllDetails(exam_id), "Sınav detayları listelendi");
+        }
+
         public IDataResult<List<ExamDetailDto>> GetExamDetails()
         {
             return new SuccessDataResult<List<ExamDetailDto>>(_examDal.GetExamDetails(), "Sınav detayları listelendi");

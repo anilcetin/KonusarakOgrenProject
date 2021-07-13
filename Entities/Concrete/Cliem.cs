@@ -11,5 +11,6 @@ namespace Entities.Concrete
         [Key]
         public int cliem_id { get; set; }
         public string cliem_title { get; set; }
+
     }
 }

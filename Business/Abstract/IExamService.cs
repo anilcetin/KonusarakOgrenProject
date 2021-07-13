@@ -16,5 +16,6 @@ namespace Business.Abstract
         IResult Update(Exam exam);
 
         IDataResult<List<ExamDetailDto>> GetExamDetails();
+        IDataResult<List<ExamContentDto>> GetExamAllDetails(int exam_id);
     }
 }

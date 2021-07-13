@@ -9,6 +9,7 @@ namespace Entities.DTOs
     {
         public int exam_id { get; set; }
         public string article_title { get; set; }
+        public string article_content { get; set; }
         public DateTime exam_date { get; set; }
 
     }
